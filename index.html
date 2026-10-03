@@ -24,6 +24,23 @@
       background-size: cover;
     }
 
+    /* Container for the Title image fixed at the top center */
+    .title-container {
+      position: fixed;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-align: center;
+    }
+
+    .title-container img {
+      max-width: 80vw;
+      height: auto;
+      max-height: 150px;
+      display: block;
+    }
+
     /* Container for the buttons fixed to the bottom */
     .button-container {
       position: fixed;
@@ -46,29 +63,47 @@
       opacity: 0.9;
     }
 
-    /* Style for the button images */
+    /* Default (Desktop / Landscape) Button Styling */
     .btn-link img {
-      height: 180px; /* Kept your 180px height setting */
+      height: 180px;
       width: auto;
       display: block;
     }
 
-    /* Mobile view: stack or adjust spacing if screen is small */
-    @media (max-width: 600px) {
-      .button-container {
-        bottom: 1.5rem;
-        left: 1rem;
-        right: 1rem;
+    /* PORTRAIT SCREENS (Phones/Tablets in vertical mode) */
+    @media (orientation: portrait) {
+      .title-container {
+        top: 3rem;
       }
 
+      .title-container img {
+        max-width: 85vw;
+        max-height: 20vh;
+      }
+
+      .button-container {
+        bottom: 2.5rem;
+        left: 1.5rem;
+        right: 1.5rem;
+      }
+
+      /* Dynamically size buttons based on screen width */
       .btn-link img {
-        height: 48px; /* Slightly smaller on mobile screens */
+        width: 42vw;  /* Each button takes up ~42% of the viewport width */
+        height: auto; /* Maintains proper aspect ratio */
+        max-height: 120px; /* Prevents them from getting excessively tall */
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Top Center Title -->
+  <div class="title-container">
+    <img src="Title.png" alt="App Title">
+  </div>
+
+  <!-- Bottom Left & Right Buttons -->
   <div class="button-container">
     <!-- Bottom Left: App Store -->
     <a href="https://apps.apple.com/app/pilotakada/id6793703227" target="_blank" class="btn-link">
