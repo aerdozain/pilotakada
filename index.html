@@ -17,19 +17,23 @@
       position: relative;
       overflow-x: hidden;
       
-      /* Background setup */
-      background: url('MainBackground.png') center/cover no-repeat fixed;
+      /* Background setup anchored to the top center */
+      background-image: url('MainBackground.png');
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     /* Container for the buttons fixed to the bottom */
     .button-container {
-      position: absolute;
+      position: fixed;
       bottom: 2rem;
       left: 2rem;
       right: 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      z-index: 10;
     }
 
     .btn-link {
@@ -44,7 +48,7 @@
 
     /* Style for the button images */
     .btn-link img {
-      height: 60px; /* Adjust height as needed for your images */
+      height: 180px; /* Kept your 180px height setting */
       width: auto;
       display: block;
     }
