@@ -17,9 +17,9 @@
       position: relative;
       overflow-x: hidden;
       
-      /* Background setup anchored to the top center */
+      /* Anchors the character at bottom-center while filling the screen */
       background-image: url('MainBackground.png');
-      background-position: top center;
+      background-position: bottom center;
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -39,6 +39,7 @@
       height: auto;
       max-height: 150px;
       display: block;
+      object-fit: contain;
     }
 
     /* Container for the buttons fixed to the bottom */
@@ -68,6 +69,7 @@
       height: 180px;
       width: auto;
       display: block;
+      object-fit: contain; /* Preserves aspect ratio */
     }
 
     /* PORTRAIT SCREENS (Phones/Tablets in vertical mode) */
@@ -87,11 +89,12 @@
         right: 1.5rem;
       }
 
-      /* Dynamically size buttons based on screen width */
+      /* Dynamically size buttons while enforcing original aspect ratio */
       .btn-link img {
-        width: 42vw;  /* Each button takes up ~42% of the viewport width */
-        height: auto; /* Maintains proper aspect ratio */
-        max-height: 120px; /* Prevents them from getting excessively tall */
+        width: 42vw;
+        height: auto;
+        max-height: 120px;
+        object-fit: contain; /* Prevents image stretching */
       }
     }
   </style>
