@@ -3,80 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download My App</title>
+  <title>Download App</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     body {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: #ffffff;
-      text-align: center;
+      width: 100vw;
+      position: relative;
+      overflow-x: hidden;
       
-      /* Replace 'background.jpg' with your actual image path or URL */
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                  url('MainBackground.jpg') center/cover no-repeat;
+      /* Background setup */
+      background: url('MainBackground.jpg') center/cover no-repeat fixed;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    /* Container for the buttons fixed to the bottom */
+    .button-container {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      right: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+    .btn-link {
+      display: inline-block;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn-link:hover {
+      transform: scale(1.05);
       opacity: 0.9;
     }
 
-    .btn-container {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
+    /* Style for the button images */
+    .btn-link img {
+      height: 60px; /* Adjust height as needed for your images */
+      width: auto;
+      display: block;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 0.9rem 1.8rem;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #ffffff;
-      background-color: #007aff;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.2s ease, transform 0.1s ease;
-    }
+    /* Mobile view: stack or adjust spacing if screen is small */
+    @media (max-width: 600px) {
+      .button-container {
+        bottom: 1.5rem;
+        left: 1rem;
+        right: 1rem;
+      }
 
-    .btn:hover {
-      background-color: #0056b3;
-      transform: translateY(-2px);
-    }
-
-    .btn-playstore {
-      background-color: #34a853;
-    }
-
-    .btn-playstore:hover {
-      background-color: #24753a;
+      .btn-link img {
+        height: 48px; /* Slightly smaller on mobile screens */
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>PILOTAKADA</h1>
-  <p>Available now on iOS and Android.</p>
+  <div class="button-container">
+    <!-- Bottom Left: App Store -->
+    <a href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" class="btn-link">
+      <img src="AppstoreButtonImg.jpg" alt="Download on the App Store">
+    </a>
 
-  <div class="btn-container">
-    <a href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" class="btn">App Store</a>
-    <a href="https://play.google.com/store/apps/details?id=YOUR_PACKAGE" target="_blank" class="btn btn-playstore">Google Play</a>
+    <!-- Bottom Right: Google Play -->
+    <a href="https://play.google.com/store/apps/details?id=YOUR_PACKAGE" target="_blank" class="btn-link">
+      <img src="PlaystoreButtonImg.jpg" alt="Get it on Google Play">
+    </a>
   </div>
 
 </body>
